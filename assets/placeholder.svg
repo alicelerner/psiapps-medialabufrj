@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480">
+  <rect width="800" height="480" fill="#f4ede9"/>
+  <rect x="1" y="1" width="798" height="478" fill="none" stroke="#e2503a" stroke-width="2" stroke-dasharray="10 8" opacity="0.5"/>
+  <g fill="#e2503a" font-family="Arial, sans-serif" text-anchor="middle">
+    <text x="400" y="228" font-size="30" font-weight="700">Imagem indisponível</text>
+    <text x="400" y="272" font-size="19" opacity="0.8">não arquivada no Internet Archive</text>
+  </g>
+</svg>

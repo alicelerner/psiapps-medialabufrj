@@ -1,0 +1,71 @@
+/* PsiApps static reconstruction — fixes for assets the Wayback Machine never
+   archived (Elementor Pro CSS was paid/un-mirrored; some images were never captured). */
+
+/* Un-archived images: show a compact, centered placeholder instead of a full-bleed void. */
+img[data-archived="missing"]{
+  display:block !important;
+  width:100% !important;
+  max-width:480px !important;
+  height:auto !important;
+  aspect-ratio:auto !important;
+  margin:1.5rem auto !important;
+  border-radius:4px;
+}
+
+/* The case-study side index is an Elementor Pro nav-menu widget. Its (paid) CSS
+   normally hides the duplicate "dropdown" copy on wider screens; recreate that. */
+.elementor-nav-menu--dropdown{ display:none !important; }
+
+/* Mobile navigation: Astra's own CSS shows the native menu when the hamburger's
+   aria-expanded is "true"; assets/nav.js flips that since the theme JS was lost.
+   No custom menu styling needed — the original Astra styling applies. */
+
+/* Buttons: black by default, brand red on hover (requested). */
+.elementor-button,
+.elementor-button-link{
+  background-color:#000 !important;
+  color:#fff !important;
+  transition:background-color .2s ease, color .2s ease !important;
+}
+.elementor-button *,
+.elementor-button-link *{ color:#fff !important; }
+.elementor-button:hover, .elementor-button:focus,
+.elementor-button-link:hover, .elementor-button-link:focus{
+  background-color:#ff4337 !important;
+}
+
+/* Case-study aside: the index + its "Baixar PDF" button stick together on scroll
+   (their Elementor Pro sticky JS was lost; assets/nav.js wraps them, this sticks
+   the wrapper). Hidden on mobile via Elementor's own class, so no media query. */
+.psiapps-sticky-aside{
+  position:sticky !important;
+  top:24px;
+  align-self:flex-start;
+}
+.elementor-widget-nav-menu{  /* fallback if the wrapper JS didn't run */
+  position:sticky !important;
+  top:24px;
+  align-self:flex-start;
+}
+/* more breathing room between the index items */
+.elementor-nav-menu.sm-vertical > li{ margin-bottom:16px !important; }
+.elementor-nav-menu.sm-vertical > li:last-child{ margin-bottom:0 !important; }
+
+/* Footnotes ("Notas"): align to the same reading column as the body text
+   (~700px, centered) instead of breaking full-width. */
+.footnotes_reference_container{
+  max-width:700px;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  box-sizing:border-box;
+  padding-left:20px;
+  padding-right:20px;
+}
+
+/* More breathing room at the bottom of every page (before the footer). */
+#main{ padding-bottom:72px !important; }
+
+/* Plain pages (no hero) start flush under the absolute header, hiding the page
+   title — give them top room so the title clears the header. */
+body.page-id-8 #main,
+body.page-id-810 #main{ padding-top:88px !important; }
